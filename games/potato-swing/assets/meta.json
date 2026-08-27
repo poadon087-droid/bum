@@ -1,0 +1,61 @@
+{
+ "potato_idle": {
+  "kind": "sheet",
+  "frames": 4,
+  "cellW": 121,
+  "cellH": 246
+ },
+ "potato_run": {
+  "kind": "sheet",
+  "frames": 6,
+  "cellW": 228,
+  "cellH": 246
+ },
+ "potato_fly": {
+  "kind": "sheet",
+  "frames": 4,
+  "cellW": 283,
+  "cellH": 246
+ },
+ "potato_swing": {
+  "kind": "sheet",
+  "frames": 2,
+  "cellW": 95,
+  "cellH": 266
+ },
+ "potato_throw": {
+  "kind": "sheet",
+  "frames": 3,
+  "cellW": 146,
+  "cellH": 246
+ },
+ "potato_hit": {
+  "kind": "sheet",
+  "frames": 2,
+  "cellW": 280,
+  "cellH": 246
+ },
+ "chip": {
+  "kind": "sheet",
+  "frames": 4,
+  "cellW": 155,
+  "cellH": 156
+ },
+ "spire": {
+  "kind": "single",
+  "w": 434,
+  "h": 1205
+ },
+ "anchor": {
+  "kind": "single",
+  "w": 136,
+  "h": 420,
+  "ringX": 0.49264705882352944,
+  "ringY": 0.15714285714285714
+ },
+ "cloud": {
+  "kind": "single",
+  "w": 483,
+  "h": 320
+ }
+}

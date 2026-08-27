@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <title>LASSO SPUD</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&family=Nunito:wght@700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="icon" href="assets/sprites/potato_idle.png" />
+</head>
+<body>
+  <div id="wrap">
+    <div id="stage">
+      <canvas id="game"></canvas>
+
+      <div id="loader" class="screen">
+        <div class="logo">LASSO SPUD</div>
+        <img class="loader-spud" src="assets/sprites/potato_idle.png" alt="" />
+        <div class="load-track"><div id="loadBar"></div></div>
+        <p id="loadTxt">Warming up the lasso…</p>
+      </div>
+
+      <div id="title" class="screen hidden">
+        <div class="logo">LASSO SPUD</div>
+        <p class="tag">A sassy potato. A lasso. Too many birds.</p>
+        <img id="titleSpud" class="title-spud" src="assets/sprites/potato_idle.png" alt="Spud" />
+        <button class="btn green" id="btnPlay">PLAY</button>
+        <button class="btn orange" id="btnHow">HOW TO PLAY</button>
+        <p class="best">BEST <span id="bestScore">0</span></p>
+      </div>
+
+      <div id="howto" class="screen hidden">
+        <div class="panel">
+          <h2>HOW TO WRANGLIN'</h2>
+          <ul>
+            <li><b>Click / tap</b> the sky to throw your lasso.</li>
+            <li><b>A / D</b> or arrows move Spud. Drag him on mobile.</li>
+            <li>Catch colorful birds. <b>Gold</b> and <b>chicken</b> are rare.</li>
+            <li>Catching those starts a <b>TUG OF WAR</b> vs Sprout. Mash to pull!</li>
+            <li>Win the tug for a juicy score multiplier.</li>
+            <li><b>Do NOT</b> lasso the dark storm crows — they bite.</li>
+            <li>Birds that escape cost a life. You get three.</li>
+          </ul>
+          <div class="how-birds five">
+            <figure><img src="assets/sprites/bird_blue_0.png" alt="" /><figcaption>10</figcaption></figure>
+            <figure><img src="assets/sprites/bird_red_0.png" alt="" /><figcaption>25</figcaption></figure>
+            <figure><img src="assets/sprites/bird_gold_0.png" alt="" /><figcaption>50 · TUG</figcaption></figure>
+            <figure><img src="assets/sprites/bird_chicken_0.png" alt="" /><figcaption>30 · TUG</figcaption></figure>
+            <figure><img src="assets/sprites/bird_crow_0.png" alt="" /><figcaption>AVOID</figcaption></figure>
+          </div>
+          <button class="btn green" id="btnHowGo">GOT IT</button>
+        </div>
+      </div>
+
+      <div id="hud" class="hidden">
+        <div class="hud-top">
+          <div class="pill score-pill">
+            <span class="lbl">SCORE</span>
+            <span id="scoreEl">0</span>
+          </div>
+          <div id="hearts" class="hearts"></div>
+          <div class="hud-right">
+            <div class="pill wave-pill">WAVE <span id="waveEl">1</span></div>
+            <button class="icon-btn" id="btnPause" aria-label="Pause"><img src="assets/ui/pause.png" alt="" /></button>
+            <button class="icon-btn" id="btnMute" aria-label="Mute"><img id="muteImg" src="assets/ui/sound_on.png" alt="" /></button>
+          </div>
+        </div>
+        <div id="comboEl" class="combo hidden">COMBO x2</div>
+        <div id="mulEl" class="mulpill hidden">x2</div>
+        <div id="hint" class="hint hidden">TAP THE SKY TO LASSO</div>
+        <div id="waveBanner" class="banner hidden">WAVE 2</div>
+      </div>
+
+      <div id="tugHud" class="tug-hud hidden">
+        <div class="tug-top">
+          <div class="logo tug-logo">TUG OF WAR</div>
+          <p class="tug-sub" id="tugSub">MASH CLICK / TAP / SPACE</p>
+          <p class="tug-prize" id="tugPrize">WIN FOR x3</p>
+        </div>
+        <div class="tug-names">
+          <span>SPUD</span>
+          <span class="vs">VS</span>
+          <span>SPROUT</span>
+        </div>
+        <p class="tug-hint" id="tugHint">TAP FAST TO PULL!</p>
+        <div id="tugResult" class="banner hidden">YOU WIN</div>
+      </div>
+
+      <div id="pause" class="screen hidden">
+        <div class="panel slim">
+          <h2>PAUSED</h2>
+          <p class="tag">Spud is judging you.</p>
+          <button class="btn green" id="btnResume">RESUME</button>
+          <button class="btn orange" id="btnRestart">RESTART</button>
+          <button class="btn blue" id="btnQuit">TITLE</button>
+        </div>
+      </div>
+
+      <div id="over" class="screen hidden">
+        <div class="panel">
+          <h2>GAME OVER</h2>
+          <img class="over-spud" src="assets/sprites/potato_sad.png" alt="" />
+          <div class="stats">
+            <div><span>SCORE</span><b id="overScore">0</b></div>
+            <div><span>BEST</span><b id="overBest">0</b></div>
+            <div><span>CAUGHT</span><b id="overCaught">0</b></div>
+            <div><span>COMBO</span><b id="overCombo">0</b></div>
+          </div>
+          <p id="newBest" class="newbest hidden">NEW HIGH SCORE!</p>
+          <button class="btn green" id="btnAgain">AGAIN</button>
+          <button class="btn blue" id="btnHome">TITLE</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="js/game.js"></script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<title>Potato Drop!</title>
+<style>
+  html, body {
+    margin: 0; height: 100%; overflow: hidden;
+    background: radial-gradient(120% 120% at 50% 20%, #12324a 0%, #0b1c2c 70%);
+    touch-action: none;
+    -webkit-user-select: none; user-select: none;
+  }
+  #wrap { position: fixed; inset: 0; display: flex; align-items: center; justify-content: center; }
+  canvas {
+    display: block;
+    box-shadow: 0 24px 80px rgba(0,0,0,.55);
+    border-radius: 14px;
+  }
+</style>
+</head>
+<body>
+<div id="wrap"><canvas id="game"></canvas></div>
+<script src="game.js"></script>
+</body>
+</html>
